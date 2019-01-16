@@ -20,7 +20,6 @@ infile = open("hp1.txt", "rb")
 a = infile.readlines()
 for i in a:
         new_line = i.decode("utf-8", "ignore")
-        #full_book += new_line
         all_words += (new_line.split())
 
       
