@@ -16,13 +16,15 @@ nested_sent = []
 indices = []
 no_punc = []
 
+# read all words into a list
 infile = open("hp1.txt", "rb")
 a = infile.readlines()
 for i in a:
         new_line = i.decode("utf-8", "ignore")
         all_words += (new_line.split())
 
-      
+
+# strip word list of punctation
 for word in all_words:
     word = word.lower()
     word = word.replace(",", "")
@@ -31,7 +33,7 @@ for word in all_words:
     word = word.replace("?", "")
     no_punc.append(word)
         
-
+# check for sentences based on periods
 for i in range(len(no_punc)):
     curr_word = no_punc[i]
     try:
@@ -40,7 +42,7 @@ for i in range(len(no_punc)):
     except IndexError:
         pass
         
-
+# create a nested list of sentences
 for i in range(len(indices)-1):
     nested_sent.append(no_punc[indices[i]+1:indices[i+1]+1])
     
@@ -58,6 +60,7 @@ words = list(model.wv.vocab)
 
 w1 = ["harry"]        
 
+# show some analogies 
 result = model.most_similar(positive=['harry'], negative=['happy'], topn=3)
 print(result)
 
