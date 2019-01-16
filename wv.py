@@ -15,7 +15,6 @@ all_words = []
 nested_sent = []
 indices = []
 no_punc = []
-final = []
 
 infile = open("hp1.txt", "rb")
 a = infile.readlines()
